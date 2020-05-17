@@ -6,7 +6,7 @@ CFLAGS = -Wall -Werror -ggdb -funroll-loops
 CXXFLAGS = -Wall -Werror -ggdb -funroll-loops
 LDFLAGS = -lncurses
 
-BIN = bb
+BIN = BlackBox
 OBJS = main.o grid.o
 
 all: $(BIN) etags
