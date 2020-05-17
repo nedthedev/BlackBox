@@ -1,0 +1,2 @@
+This is a clone of the blackbox board game I created in 2017. It's a pretty 
+fun game that runs entirely in C++ and uses ncurses for the main displays.
