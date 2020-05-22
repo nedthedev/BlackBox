@@ -22,16 +22,17 @@ int main(int argc, char *argv[])
 
 	// infinite();
 
-	// time_t seed;
+	time_t seed;
 	struct timeval tv;
 	gettimeofday(&tv, NULL);
-	// seed = (tv.tv_usec ^ (tv.tv_sec << 20)) & 0xffffffff;
-	// srand(1523145647);
+	seed = (tv.tv_usec ^ (tv.tv_sec << 20)) & 0xffffffff;
+	srand(1523145647);
 	// srand(2132880270);
-	srand((tv.tv_usec ^ (tv.tv_sec << 20)) & 0xffffffff);
+	// srand(seed);
 	// std::cout << seed << std::endl;
 
-	grid g;
+	// seed = 1101975525;
+	grid g(seed);
 
 	while (error_found(&g))
 	{

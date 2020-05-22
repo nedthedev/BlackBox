@@ -18,8 +18,9 @@ int error_found(grid *g)
 	return 0;
 }
 
-grid::grid() : works(1), games(0), points(15), total_points(0), total_moves(0), wins(0), moves(0), playing(1), balls_placed(0)
+grid::grid(time_t &seed) : works(1), games(0), points(15), total_points(0), total_moves(0), wins(0), moves(0), playing(1), balls_placed(0)
 {
+	this->seed = seed;
 	for (int i = 0; i < SIZE * 4 * 2; i++)
 	{
 		guesses[i] = 0;
@@ -163,10 +164,7 @@ void grid::draw_map()
 		{
 			if (i == 0 || i == 9 || t == 0 || t == 9)
 			{
-				if (user_map[i][t] == 0)
-				{
-				}
-				else
+				if (user_map[i][t] != 0)
 				{
 					if (guesses[(user_map[i][t] - 1) * 2])
 					{
@@ -479,8 +477,10 @@ int pass_ray(grid *g, int x, int y, int dir, int num)
 {
 	// int end = 0;
 	// static int input = 1;
+	// checks the number of iterations made on pass ray, find new seed if needed
 	if (g->count >= 50000)
 	{
+		std::cout << "Error in this seed: " << g->seed << std::endl;
 		g->works = 0;
 		return -20;
 	}

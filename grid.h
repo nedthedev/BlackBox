@@ -8,7 +8,8 @@
 class grid
 {
 public:
-	grid();
+	grid(time_t &);
+	time_t seed;
 	int works;
 	int games;
 	int points;
